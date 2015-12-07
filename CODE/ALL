@@ -1,0 +1,20 @@
+#!/usr/bin/env python
+if __name__=='__main__':
+	from Main import reduc,cluster,do_quality,plot,plot_spec
+	print "** REDUCTION **\n"
+	reduc()
+	print '\t[ok]\n'
+	print "** CLUSTERING **\n"
+	cluster()
+	print '\t[ok]\n'
+	print "** QUALITY CHECK **\n"
+	do_quality()
+	print '\t[ok]\n'
+	print "** PLOTTING **\n"
+	plot()
+	print '\t[ok]\n'
+	print "** PLOTTING SPECS **\n"
+	plot_spec()
+	print '\t[ok]\n'
+	
+	exit()

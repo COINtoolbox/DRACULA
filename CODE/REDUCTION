@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+from Main import reduc
+if __name__=='__main__':
+	print "** REDUCTION **\n"
+	reduc()
+	print '\t[ok]\n'
+	exit()

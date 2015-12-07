@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+from Main import cluster
+if __name__=='__main__':
+	print "** CLUSTERING **\n"
+	cluster()
+	print '\t[ok]\n'
+	exit()

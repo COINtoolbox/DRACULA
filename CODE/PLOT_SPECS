@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+from Main import plot_spec
+if __name__=='__main__':
+	print "** PLOTTING SPECS **\n"
+	plot_spec()
+	print '\t[ok]\n'
+	exit()
