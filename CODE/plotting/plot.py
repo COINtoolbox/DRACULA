@@ -3,6 +3,7 @@ from __future__ import print_function
 
 import numpy as np
 from config import REDUCTION_METHOD, CLUSTERING_METHOD 
+from matplotlib.ticker import MaxNLocator
 
 import argparse
 parser = argparse.ArgumentParser()
@@ -38,8 +39,17 @@ def crop(data,i,j,plt_inds):
 	iplt,jplt=plt_inds[ind(i)],plt_inds[j]
 	return np.array([data[jplt],data[iplt]])
 def add_labels(plts,Nplt,ls,lc):
-	PLT,xl,yl = plts, .8, .85
-	if Nplt>1:	PLT,xl,yl = plts[0][Nplt-1], .1,.4
+	if Nplt==1:	PLT,xl,yl = plts, .73,.833
+	elif Nplt==2: PLT,xl,yl = plts[0][Nplt-1], .458,.665
+	elif Nplt==3: PLT,xl,yl = plts[0][Nplt-1], 0.187,0.5
+	elif Nplt==4: PLT,xl,yl = plts[0][Nplt-1], -0.085,0.23
+	elif Nplt==5: PLT,xl,yl = plts[0][Nplt-1], -0.355,0.04
+	elif Nplt==6: PLT,xl,yl = plts[0][Nplt-1], -0.625,-0.16
+	elif Nplt==7: PLT,xl,yl = plts[0][Nplt-1], -0.89,-0.35
+	elif Nplt==8: PLT,xl,yl = plts[0][Nplt-1], -1.17,-0.54
+	elif Nplt==9: PLT,xl,yl = plts[0][Nplt-1], -1.44,-0.74
+	elif Nplt==10: PLT,xl,yl = plts[0][Nplt-1], -1.7,-0.94
+	else: PLT,xl,yl = plts[0][Nplt-1], .1, 0.4
 	G_space='\n-----------------------------'
 	for g in ls: G_space+='\n'
 	Ng=len(ls)
@@ -61,6 +71,7 @@ def plot_data(red_data,cl_data,label_data,out_name='plots/plot.png'):
 	group_text=['Group '+str(int(i)+1) for i in set(label_data)]
 
 	Nplt=TAM(red_data)
+	if Nplt!=TAM(cl_data): print('**ERROR** - # of rows in reducted file is different from # of rows in cluster centers file!\n\n\t-- please rerun either REDUCTION of CLUSTERING --\n'); exit()
 	plt_inds=range(Nplt+1)
 
 	if plot_pars!='ALL':
@@ -72,15 +83,22 @@ def plot_data(red_data,cl_data,label_data,out_name='plots/plot.png'):
 	f,plts  = plt.subplots(Nplt,Nplt,sharex=True,sharey=True,figsize=(20,14))
 	for i in range(Nplt):
 		for j in range(Nplt):
-			PLT,ax=plt,plt.gca
+			if Nplt < 7: 
+				fs = 18
+			else: 
+				fs = 10
+			PLT,ax=plt,plt.gca()
 			if Nplt>1:
 				PLT,ax= plts[i][j],plts[i][j]
 				plt.setp( ax.get_xticklabels()[ 0], visible=False)
 				plt.setp( ax.get_xticklabels()[-1], visible=False)
-				plt.setp( ax.yaxis.get_major_ticks()[ 0], visible=False)
-				if i>0: plt.setp( ax.yaxis.get_major_ticks()[ -1], visible=False)
-			plt.setp( ax.get_xticklabels(), rotation=45, fontsize=18)
-			plt.setp( ax.get_yticklabels(), rotation=45, fontsize=18)
+#				plt.setp( ax.yaxis.get_major_ticks()[ 0], visible=False)
+#				if i>0: plt.setp( ax.yaxis.get_major_ticks()[ -1], visible=False)
+				if Nplt > 9 and i>0:   plt.setp( ax.xaxis.get_major_ticks()[1], visible=False)
+				ax.yaxis.set_major_locator(MaxNLocator(nbins=4, prune='upper'))
+
+			plt.setp( ax.get_xticklabels(), rotation=45, fontsize=fs)
+			plt.setp( ax.get_yticklabels(), rotation=45, fontsize=fs)
 #			PLT.locator_params('x',nbins=4)
 #			PLT.locator_params('y',nbins=4)
 			dat	= crop(red_data,i,j,plt_inds)
@@ -96,12 +114,13 @@ def plot_data(red_data,cl_data,label_data,out_name='plots/plot.png'):
 		PLTX,PLTY=plts,plts
 		if Nplt>1: 
 			PLTX,PLTY=plts[ Nplt-1 ][ i ],plts[ i      ][ 0 ]
-			if REDUCTION_METHOD == 'DeepLearning':         
+	  		if REDUCTION_METHOD == 'DeepLearning':         
 				PLTX.set_xlabel('feature '+ str(plt_inds[i]+1), fontsize=26)
 				PLTY.set_ylabel('feature '+ str(plt_inds[ind(i)]+1), fontsize=26)				
 			else:
 				PLTX.set_xlabel('PC'+ str(plt_inds[i]+1), fontsize=26)
 				PLTY.set_ylabel('PC'+ str(plt_inds[ind(i)]+1), fontsize=26)
-	plt.subplots_adjust(left=0.09, right=0.975, top=0.975, bottom=0.1,hspace=0.0,wspace=0.0)
+
+	plt.subplots_adjust(left=0.1, right=0.9, top=0.95, bottom=0.15,hspace=hspace,wspace=vspace)
 	if in_window	: plt.show(block=True)
 	else		: plt.savefig(out_name)
