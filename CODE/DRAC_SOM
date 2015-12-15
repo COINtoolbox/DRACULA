@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+if __name__=='__main__':
+	print('''
+################################################
+########## BEGINNING HMV PIPELINE - SOM ########
+################################################
+''')
+	from Drac.SOM import run_som,plot_som
+	print "** RUNNING SOM **\n"
+	run_som()
+	print '\t[ok]\n'
+	print "** PLOTTING SOM **\n"
+	plot_som()
+	print '\t[ok]\n'
+	
+	exit()

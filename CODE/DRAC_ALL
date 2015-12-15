@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 if __name__=='__main__':
-	from Drac import reduc,cluster,do_quality,plot,plot_spec
+	from Drac.Main import reduc,cluster,do_quality,plot,plot_spec
 	print "** REDUCTION **\n"
 	reduc()
 	print '\t[ok]\n'

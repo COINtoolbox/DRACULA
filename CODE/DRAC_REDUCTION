@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from Drac import reduc
+from Drac.Main import reduc
 if __name__=='__main__':
 	print "** REDUCTION **\n"
 	reduc()

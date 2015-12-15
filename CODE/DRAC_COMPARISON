@@ -41,11 +41,11 @@ for VAL,ind in zip(VAR_VALS,range(1,1+len(VAR_VALS))):
 	print(BASE_CONF+VAR_PAR+'='+VAL,file=fconf)
 	print(BASE_CONF+VAR_PAR+'='+VAL)
 	fconf.close()
-	import Drac
+	import Drac.Main
 
 	print (BORD_LINE);print (CASE_LINE);print (BORD_LINE)
-	reload(Drac)
-	from Drac import reduc,cluster,do_quality,plot,plot_spec
+	reload(Drac.Main)
+	from Drac.Main import reduc,cluster,do_quality,plot,plot_spec
 	if VAR_TYPE=='REDUCTION':
 		print ("\t** REDUCTION **\n")
 		case_red=case 

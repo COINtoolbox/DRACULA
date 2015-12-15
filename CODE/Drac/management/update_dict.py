@@ -1,11 +1,13 @@
 from __future__ import print_function
 from config import *
 
-def update_dict(DICT,prefix):
+def update_dict(DICT,prefix=''):
 	print('\t* checking for',prefix,'updates *')
 	updates=False
+	pref=''
+	if prefix!='': pref=prefix+'_'
 	for item0 in DICT:
-		item=prefix+'_'+item0
+		item=pref+item0
 		try:
 			exec(item)
 		except NameError:
