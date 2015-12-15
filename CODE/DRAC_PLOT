@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-from Main import plot_spec
+from Drac import plot
 if __name__=='__main__':
-	print "** PLOTTING SPECS **\n"
-	plot_spec()
+	print "** PLOTTING **\n"
+	plot()
 	print '\t[ok]\n'
 	exit()
