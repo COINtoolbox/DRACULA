@@ -20,6 +20,7 @@ update_dict(dict_som)
 
 import som_module.run_som
 import som_module.plot_som
+os.system('mkdir -p som_res/')
 def run_som():
 	som_module.run_som.func(dict_som)
 def plot_som():
