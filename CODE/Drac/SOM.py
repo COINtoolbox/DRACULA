@@ -16,7 +16,7 @@ from management.name_files import create_name,plot_name
 from management.info_work import prt,print_info,read_info
 
 from management.params_som import dict_som
-update_dict(dict_som)
+update_dict(dict_som,conf_file='config_som')
 
 def ERROR(message):
 	out='### **ERROR** - '+message+' ####'
@@ -42,4 +42,4 @@ def plot_som():
 		SPECTRAL_DATA_EXTERNAL
 	except NameError: SPEC_DATA=ORG_DATA
 	else		: SPEC_DATA=SPECTRAL_DATA_EXTERNAL;print('\t- using external spectral for plotting')
-	som_module.plot_som.func(READ(SPEC_DATA))
+	som_module.plot_som.func(READ(SPEC_DATA),dict_som)
