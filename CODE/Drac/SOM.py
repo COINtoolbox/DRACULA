@@ -18,10 +18,21 @@ from management.info_work import prt,print_info,read_info
 from management.params_som import dict_som
 update_dict(dict_som)
 
+def READ(NAME,MASK=''):
+	if os.path.isfile(NAME):
+		try: MASK_DATA
+		except NameError: return np.loadtxt(NAME)
+		else		: return np.loadtxt(NAME)[np.loadtxt(MASK_DATA)==1]
+	else: ERROR('file '+NAME+' does not exist!')
+
 import som_module.run_som
 import som_module.plot_som
 os.system('mkdir -p som_res/')
 def run_som():
-	som_module.run_som.func(dict_som)
+	som_module.run_som.func(READ(ORG_DATA),dict_som)
 def plot_som():
-	som_module.plot_som.func(dict_som)
+	try:
+		SPECTRAL_DATA_EXTERNAL
+	except NameError: SPEC_DATA=ORG_DATA
+	else		: SPEC_DATA=SPECTRAL_DATA_EXTERNAL;print('\t- using external spectral for plotting')
+	som_module.plot_som.func(READ(SPEC_DATA))
