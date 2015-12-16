@@ -6,5 +6,5 @@ dict_som = dict([
     ['learn_rate', 0.5],
     ['random_seed', 200],
     ['Niter', 100],
-    ['som_type', 'batch']
+    ['som_type', 'random']
 ])

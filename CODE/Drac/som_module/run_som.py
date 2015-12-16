@@ -23,6 +23,6 @@ def func(data, params):
 
     # get and save som output
     w = np.array([som.winner(item) for item in data])
-    np.savetxt('som_index.dat', w, fmt="%d %d")
+    np.savetxt('som_res/som_index.dat', w, fmt="%d %d")
 
     return
