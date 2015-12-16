@@ -18,7 +18,14 @@ from management.info_work import prt,print_info,read_info
 from management.params_som import dict_som
 update_dict(dict_som)
 
-def READ(NAME,MASK=''):
+def ERROR(message):
+	out='### **ERROR** - '+message+' ####'
+	line='\n'
+	for x in out: line+='#'
+	line+='\n'
+	print(line+out+line)
+	exit()
+def READ(NAME):
 	if os.path.isfile(NAME):
 		try: MASK_DATA
 		except NameError: return np.loadtxt(NAME)
