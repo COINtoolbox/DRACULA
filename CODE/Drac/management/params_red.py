@@ -24,3 +24,13 @@ DeepLearning_dict=dict([
 	[ 'epochs'		, '100'						],
 	[ 'ignore_const_cols'	, 'F'						],
 ])
+
+isomap_dict=dict([
+	[ 'n_neighbors'		, 5          ],
+	[ 'n_components'	, 2	     ],
+	[ 'eigen_solver'	, 'auto'   ],
+	[ 'tol' 		, 0	     ],
+	[ 'max_iter'		, None       ],
+	[ 'path_method'		, 'auto'   ],
+	[ 'neighbors_algorithm'	, 'auto'   ],
+])
