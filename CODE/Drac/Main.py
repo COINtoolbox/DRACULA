@@ -31,11 +31,6 @@ def PRT_FMSG(msg_ok,msg_fail,FILE):
 	if os.path.isfile(FILE) : print('\t*',msg_ok,'->',FILE)
 	else 			: print('\t*',msg_fail,'- no',FILE,'file')
 
-print('''
-################################################
-########## BEGINNING HMV PIPELINE ##############
-################################################
-''')
 #############################
 #### UPDATE DICTS AND	 ####
 #### CREATE FILE NAMES	 ####

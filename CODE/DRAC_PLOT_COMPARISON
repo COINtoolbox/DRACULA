@@ -12,6 +12,11 @@ def PRT_FMSG_PLT(msg_ok,msg_fail,FILE):
 	else:
 		for Q in QUALITY_METHODS: PRT_FMSG(msg_ok,msg_fail,FILE[:-4]+'_'+Q+FILE[-4:])
 if __name__=='__main__':
+	print '''
+################################################
+########## BEGINNING HMV PIPELINE ##############
+################################################
+'''
 	print "** PLOTTING COMPARISON **\n"
 	os.system('mkdir -p plots/')
 	plot_quality(QUALITY_METHODS,'plots/quality'+PLOT_QUA_EXT)
