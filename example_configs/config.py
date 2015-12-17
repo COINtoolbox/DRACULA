@@ -96,3 +96,14 @@ PLOTTING INPUT DATA
 #CLUSTERS_DATA_EXTERNAL		= '../empca_trained_coeff/coefficients.dat'
 #LABELS_DATA_EXTERNAL		= '../empca_trained_coeff/coefficients.dat'
 #SPECTRAL_DATA_EXTERNAL		= '../empca_trained_coeff/coefficients.dat'
+
+#####################################################################################
+'''
+COMPARISON PART !!!
+'''
+
+VAR_TYPE	= 'CLUSTERING' # 'REDUCTION'
+VAR_PAR		= 'CLUSTERING_METHOD' #MeanShift_quantile
+VAR_VALS	= ['MeanShift','KMeans']
+PLOT_QUA_EXT	= '.pdf'
+
