@@ -2,10 +2,10 @@
 if __name__=='__main__':
 	print '''
 ################################################
-########## BEGINNING DRACULA ##############
+########## BEGINNING DRACULA ###################
 ################################################
 '''
-	from Drac.Main import reduc,cluster,do_quality,plot,plot_spec
+	from Drac.EXEC import reduc,cluster,do_quality,plot,plot_spec
 	print "** REDUCTION **\n"
 	reduc()
 	print '\t[ok]\n'
