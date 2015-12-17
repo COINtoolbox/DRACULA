@@ -81,7 +81,6 @@ def plot_data(red_data,cl_data,label_data,out_name='plots/plot.png'):
 				plt.setp( ax.get_xticklabels()[-1], visible=False)
 				plt.setp( ax.yaxis.get_major_ticks()[ 0], visible=False)
 				if i>0: plt.setp( ax.yaxis.get_major_ticks()[ -1], visible=False)
-			print(Nplt,i,j)
 			plt.setp( ax.get_xticklabels(), rotation=45, fontsize=18)
 			plt.setp( ax.get_yticklabels(), rotation=45, fontsize=18)
 #			PLT.locator_params('x',nbins=4)
