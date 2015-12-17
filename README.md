@@ -36,13 +36,21 @@ There are two approaches for using the pipeline
 
 	In this way all the settings of the pipeline are set by a configuration file (`config.py`).
 	It only produces results for one specific configuration in each run.
-	See the README file in HOW_TO_USE_CONFIG to the the possibilities of the configuration file.
-* Advanced Use:
+	See the README file in HOW_TO_USE_CONFIG to see the possibilities of the configuration file.
+* SOM visualisation:
+
+	In this module, the SOM method is used.
+	It should be used for visualization of the possible clustering of the data.
+	This use does not folow the steps of the pipeline.
+	Be careful for this module may take a realy long time according to the parameters chosen.
+	The configuration file is `config_som.py`.
+	See the README_COMPARISON file for more information.
+* Comparison Use:
 
 	It is  strongly recomended that you learn how to use the pipeline in the Normal approach before using this.
 	This new module was introduced to run the pipeline variating one of the set of parameters and comparing the results.
-	Here a similar configuration file (`config_comparison.py`) but with extra keys.
-	See the advanced section of the README file in HOW_TO_USE_CONFIG to the the possibilities of this configuration file.
+	Here a similar configuration file (`config_comparison.py`) is used but with extra keys.
+	See the README_COMPARISON file for more information.
 
 
 ### Prepare environment
