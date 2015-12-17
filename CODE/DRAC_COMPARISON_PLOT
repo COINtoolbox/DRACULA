@@ -5,10 +5,7 @@ if __name__=='__main__':
 ########## BEGINNING DRACULA COMP ##############
 ################################################
 '''
-	from Drac.COMPARISON import run_comparison,plot_comparison
-	print "** BEGINNING COMPARRISSON **\n"
-	run_comparison()
-	print '\t[ok]\n'
+	from Drac.COMPARISON import plot_comparison
 	print "** PLOTTING COMPARRISSON **\n"
 	plot_comparison()
 	print '\t[ok]\n'
