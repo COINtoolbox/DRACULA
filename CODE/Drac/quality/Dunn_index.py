@@ -20,7 +20,7 @@ def quality(X, cluster_centers, cluster_labels, params):
         
         if n_clusters <= 1:
                 # raise ValueError('Number of clusters should be > 1 for computing Dunn index')
-                print('\tERROR: Number of clusters should be > 1 for computing Dunn index')
+                print('\t\tERROR: Number of clusters should be > 1 for computing Dunn index')
                 return np.nan
         else:
 

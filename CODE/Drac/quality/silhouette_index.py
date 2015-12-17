@@ -20,7 +20,7 @@ def quality(data_red, cluster_centers, cluster_labels, params):
 
     if n_clusters <= 1:
         # raise ValueError('Number of clusters should be > 1 for computing silhouette index')
-        print('\tERROR: Number of clusters should be > 1 for computing silhouette index')
+        print('\t\tERROR: Number of clusters should be > 1 for computing silhouette index')
         q = np.nan
     else:
         q = silhouette_score(data_red, cluster_labels, metric=metric)
