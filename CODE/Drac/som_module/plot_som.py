@@ -4,6 +4,19 @@ import pylab as plt
 from scipy import stats
 
 def func(spec_data,dict_som,out_name='som_res/som.pdf'):
+
+	import argparse
+	parser = argparse.ArgumentParser()
+	parser.add_argument( '-nl'	, '--no_label'	, dest='do_label'	, default=True		, action='store_false'	, help='do not plot label' )
+	parser.add_argument( '-w'	, '--window'	, dest='in_window'	, default=False		, action='store_true'	, help='keep plot in interactive window, this option will not save the output automaticaly' )
+	parser.add_argument( '-hs'	, '--horiz_space', dest='hspace'	, default=0		, help='set horizontal spacing between the plots' )
+	parser.add_argument( '-vs'	, '--vert_space', dest='vspace'		, default=0		, help='set vertical spacing between the plots' )
+	for item in ['do_label','in_window','hspace','vspace']:
+		exec(item+'=parser.parse_args().'+item)
+	hspace	= float(hspace)
+	vspace	= float(vspace)
+
+
 	index = np.loadtxt('som_res/som_index.dat')
 	nx = dict_som['nx']
 	ny = dict_som['ny']
@@ -15,7 +28,7 @@ def func(spec_data,dict_som,out_name='som_res/som.pdf'):
 		
 		
 	fig,ax = plt.subplots(nx,ny)
-	fig.subplots_adjust(left=0, bottom=0, right=1, top=1,wspace=0.0,hspace=0.0)
+	fig.subplots_adjust(left=0, bottom=0, right=1, top=1,wspace=vspace,hspace=hspace)
 		
 	# make plots
 	for i in xrange(nx):
@@ -53,7 +66,6 @@ def func(spec_data,dict_som,out_name='som_res/som.pdf'):
 				CL95 = np.array( [ [ stats.scoreatpercentile(f[:,k],2.5), stats.scoreatpercentile(f[:,k],97.5)] for k in xrange(n2) ] )
 
 
-				print(range(n2),ff,'k-' )
 				ax[i,j].plot(range(n2),ff,'k-' )
 	
 				ax[i,j].fill_between( range(n2) ,CL68[:,0], CL68[:,1],interpolate=True,facecolor = "red",alpha = 0.4)
@@ -63,7 +75,5 @@ def func(spec_data,dict_som,out_name='som_res/som.pdf'):
 				ax[i,j].set_xticks([])
 				ax[i,j].set_yticks([])
 	
-				
-	fig.savefig(out_name,format = "pdf",dpi = 4000)
-	
-	pass
+	if in_window	: plt.show()			
+	else		: fig.savefig(out_name,dpi = 4000)
