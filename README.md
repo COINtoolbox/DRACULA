@@ -36,7 +36,7 @@ There are two approaches for using the pipeline
 
 	In this way all the settings of the pipeline are set by a configuration file (`config.py`).
 	It only produces results for one specific configuration in each run.
-	See the README file in HOW_TO_USE_CONFIG to see the possibilities of the configuration file.
+	See the  HOW_TO_USE_CONFIG file to see the possibilities of the configuration file.
 * SOM visualisation:
 
 	In this module, the SOM method is used.
@@ -111,7 +111,7 @@ All modules also print the information used and resulting in `info/`.
 ## Advanced plotting of results
 The default plot of the results are in a figure (.png) with all the PCs colored according to the clusters.
 If you want to change the extension of the figure or the color arrangement,
-change the parameters in the config file (see HOW_TO_USE_CONFIG README).
+change the parameters in the config file (see HOW_TO_USE_CONFIG).
 
 If you want other options, there are a few available using keys in the terminal when executing the `PLOT` command.
 Here are the plossibilities:
