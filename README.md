@@ -57,7 +57,7 @@ Create your own dir (preferably outside the pipeline dir) to run the code and co
 
 	mkdir your_dir
 	cd your_dir
-	cp PIPELINE_DIR/example_config.py config.py
+	cp PIPELINE_DIR/example_configs/config.py config.py
 
 Now you are ready to run the pipeline functions!
 
@@ -88,19 +88,6 @@ To run just the plotting of the spectra by gorups execute:
 
 	PLOT_SPECS
 
-Remeber, all cases are configured by:
-
-	config.py
-
-If you are running the pipeline for comparison (see Advanced Use),
-the command is:
-
-	COMPARISON
-
-and the configuration file is:
-
-	config_comparison.py
-
 ## Outputs
 The outputs of reduction methods are placed in `red_data/`.
 They will be input for clustering and plotting unless stated otherwise.
@@ -112,19 +99,6 @@ The outputs of plotting are placed in `plots/`.
 
 All modules also print the information used and resulting in `info/`.
 
-## Adding your code
-If you want to add your code to the pipeline, put it in the one of the following dirs inside the pipeline and we will format it for you:
-
-	EXTERNAL_CODES/clustering/
-	EXTERNAL_CODES/reduction/
-
-## Sharing plots
-If you want to share plots done with (or without) the pipeline,
-put them in
-
-	share_plots/
-
-Please mind the name of your plots so you don't overwrite other peoples results.
 
 ## Advanced plotting of results
 The default plot of the results are in a figure (.png) with all the PCs colored according to the clusters.
