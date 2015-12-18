@@ -43,22 +43,19 @@ def func(spec_data,dict_som,out_name='som_res/som.pdf'):
 				n2 = f.shape[0]
 		
 				NORM = f[200:301].sum()
-				f/=NORM
+				if NORM!=0: f/=NORM
 		
 				ax[i,j].plot(f,'k-' )
 				ax[i,j].set_xticks([])
 				ax[i,j].set_yticks([])
 			else:
-		
 				f = spec_data[indices]
 				n1,n2 = f.shape
 
-		
 				for k in xrange(n1):
 					NORM = f[k,200:301].sum()
-					for kk in xrange(n2):
-						f[k,kk]/=NORM
-	
+					if NORM!=0:
+						for kk in xrange(n2):	f[k,kk]/=NORM
 
 				ff=np.median(f,axis=0)
 
