@@ -2,7 +2,7 @@
 if __name__=='__main__':
 	print('''
 ################################################
-########## BEGINNING HMV PIPELINE - SOM ########
+########## BEGINNING DRACULA - SOM #############
 ################################################
 ''')
 	from Drac.SOM import run_som,plot_som
