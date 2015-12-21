@@ -1,7 +1,7 @@
 # Use of Pipeline for the use of data reduction and clustering for mehtods comparison
 It is  strongly recomended that you learn how to use the pipeline in the Normal approach before using this.
 This new module was introduced to run the pipeline variating one of the set of parameters and comparing the results.
-Here a similar configuration file (`config_comparison.py`) but with extra keys.
+Here a similar configuration file (`config.py`) but with extra keys.
 See the advanced section of the README file in HOW_TO_USE_CONFIG to the the possibilities of this configuration file.
 
 * For data reduction:
@@ -39,16 +39,16 @@ Get the nice functions we prepared. In the pipeline dir, do the command:
 
 	source SOURCE_ME
 
-Create your own dir (preferably outside the pipeline dir) to run the code and copy the `config_comparison.py` file there:
+Create your own dir (preferably outside the pipeline dir) to run the code and copy the `config.py` file there:
 
 	mkdir your_dir
 	cd your_dir
-	cp PIPELINE_DIR/example_configs/config_comparison.py config_comparison.py
+	cp PIPELINE_DIR/example_configs/config.py config.py
 
 Now you are ready to run the pipeline functions!
 
 ### Pipeline function
-Inside your own working dir with the `config_comparison.py` file you can use any of these functions:
+Inside your own working dir with the `config.py` file you can use any of these functions:
 
 To run the whole comparison pipeline execute:
 
