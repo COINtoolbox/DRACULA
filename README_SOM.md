@@ -33,6 +33,12 @@ Create your own dir (preferably outside the pipeline dir) to run the code and co
 
 Now you are ready to run the pipeline functions!
 
+### Configuration file
+Note that the SOM module has its own configuration file `config_som.py`.
+As this config file is used exclusively for SOM,
+there is no need for adding a prefix `SOM_` before the extra parameters
+as it is done in the main pipeline.
+
 ### Pipeline function
 Inside your own working dir with the `config_som.py` file you can use any of these functions:
 
