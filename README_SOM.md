@@ -25,18 +25,18 @@ Get the nice functions we prepared. In the pipeline dir, do the command:
 
 	source SOURCE_ME
 
-Create your own dir (preferably outside the pipeline dir) to run the code and copy the config_comparison.py file there:
+Create your own dir (preferably outside the pipeline dir) to run the code and copy the `config_som.py` file there:
 
 	mkdir your_dir
 	cd your_dir
-	cp PIPELINE_DIR/example_configs/config_comparison.py config_comparison.py
+	cp PIPELINE_DIR/example_configs/config_som.py config_som.py
 
 Now you are ready to run the pipeline functions!
 
 ### Pipeline function
-Inside your own working dir with the config_comparison.py file you can use any of these functions:
+Inside your own working dir with the `config_som.py` file you can use any of these functions:
 
-To run the whole comparison pipeline execute:
+To run the whole som pipeline execute:
 
 	DRAC_SOM
 

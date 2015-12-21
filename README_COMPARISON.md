@@ -39,7 +39,7 @@ Get the nice functions we prepared. In the pipeline dir, do the command:
 
 	source SOURCE_ME
 
-Create your own dir (preferably outside the pipeline dir) to run the code and copy the config_comparison.py file there:
+Create your own dir (preferably outside the pipeline dir) to run the code and copy the `config_comparison.py` file there:
 
 	mkdir your_dir
 	cd your_dir
@@ -48,7 +48,7 @@ Create your own dir (preferably outside the pipeline dir) to run the code and co
 Now you are ready to run the pipeline functions!
 
 ### Pipeline function
-Inside your own working dir with the config_comparison.py file you can use any of these functions:
+Inside your own working dir with the `config_comparison.py` file you can use any of these functions:
 
 To run the whole comparison pipeline execute:
 
