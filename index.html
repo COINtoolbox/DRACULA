@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Dracula by COINtoolbox</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Dracula</h1>
+        <h2></h2>
+        <a href="https://github.com/COINtoolbox/DRACULA" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="pipeline-for-the-use-of-data-reduction-and-clustering" class="anchor" href="#pipeline-for-the-use-of-data-reduction-and-clustering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pipeline for the use of data reduction and clustering</h1>
+
+<p>Pipeline to use all methods of data reduction and clustering.
+Some cluster quality methods were also implemented.
+So far we have implemented:</p>
+
+<ul>
+<li>For data reduction:
+
+<ul>
+<li>PCA</li>
+<li>empca</li>
+<li>DeepLearning (requires <code>R</code>, <code>h2o</code> for <code>R</code> and <code>rpy2</code>)</li>
+</ul>
+</li>
+<li>For clustering:
+
+<ul>
+<li>MeanShift</li>
+<li>KMeans</li>
+<li>AffinityPropagation</li>
+<li>AgglomerativeClustering</li>
+<li>DBSCAN</li>
+</ul>
+</li>
+<li>For cluster quality testing:
+
+<ul>
+<li>silhouette_index</li>
+<li>Dunn_index</li>
+<li>DavisBouldin_index</li>
+<li>vrc</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p>To run fully this pipeline, you will need:</p>
+
+<pre><code>numpy
+matplotlib
+sklearn
+</code></pre>
+
+<h2>
+<a id="basic-use" class="anchor" href="#basic-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic use</h2>
+
+<p>The idea of the code is to get the function of the pipeline and run the code in a outside dir.
+You should first prepare your environment with two simple steps.</p>
+
+<p>There are two approaches for using the pipeline</p>
+
+<ul>
+<li>
+<p>Normal Use:</p>
+
+<p>In this way all the settings of the pipeline are set by a configuration file (<code>config.py</code>).
+It only produces results for one specific configuration in each run.
+See the  HOW_TO_USE_CONFIG file to see the possibilities of the configuration file.</p>
+</li>
+<li>
+<p>SOM visualisation:</p>
+
+<p>In this module, the SOM method is used.
+It should be used for visualization of the possible clustering of the data.
+This use does not folow the steps of the pipeline.
+Be careful for this module may take a realy long time according to the parameters chosen.
+The configuration file is <code>config_som.py</code>.
+See the README_COMPARISON file for more information.</p>
+</li>
+<li>
+<p>Comparison Use:</p>
+
+<p>It is  strongly recomended that you learn how to use the pipeline in the Normal approach before using this.
+This new module was introduced to run the pipeline variating one of the set of parameters and comparing the results.
+Here a similar configuration file (<code>config_comparison.py</code>) is used but with extra keys.
+See the README_COMPARISON file for more information.</p>
+</li>
+</ul>
+
+<h3>
+<a id="prepare-environment" class="anchor" href="#prepare-environment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prepare environment</h3>
+
+<p>It is very easy to prepare your environment to run the pipeline.
+It can be done in 2 steps:</p>
+
+<p>Get the nice functions we prepared. In the pipeline dir, do the command:</p>
+
+<pre><code>source SOURCE_ME
+</code></pre>
+
+<p>Create your own dir (preferably outside the pipeline dir) to run the code and copy the config.py file there:</p>
+
+<pre><code>mkdir your_dir
+cd your_dir
+cp PIPELINE_DIR/example_configs/config.py config.py
+</code></pre>
+
+<p>Now you are ready to run the pipeline functions!</p>
+
+<h3>
+<a id="pipeline-function" class="anchor" href="#pipeline-function" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pipeline function</h3>
+
+<p>Inside your own working dir with the config.py file you can use any of these functions:</p>
+
+<p>To run the whole pipeline execute:</p>
+
+<pre><code>ALL
+</code></pre>
+
+<p>To run just the reduction part execute:</p>
+
+<pre><code>REDUCTION
+</code></pre>
+
+<p>To run just the clustering execute:</p>
+
+<pre><code>CLUSTERING
+</code></pre>
+
+<p>To run just the clustering quality execute:</p>
+
+<pre><code>QUALITY
+</code></pre>
+
+<p>To run just the plotting execute:</p>
+
+<pre><code>PLOT
+</code></pre>
+
+<p>To run just the plotting of the spectra by gorups execute:</p>
+
+<pre><code>PLOT_SPECS
+</code></pre>
+
+<h2>
+<a id="outputs" class="anchor" href="#outputs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Outputs</h2>
+
+<p>The outputs of reduction methods are placed in <code>red_data/</code>.
+They will be input for clustering and plotting unless stated otherwise.</p>
+
+<p>The outputs of clustering methods are placed in <code>cl_data/</code>.
+They will be input for plotting unless stated otherwise.</p>
+
+<p>The outputs of plotting are placed in <code>plots/</code>.</p>
+
+<p>All modules also print the information used and resulting in <code>info/</code>.</p>
+
+<h2>
+<a id="advanced-plotting-of-results" class="anchor" href="#advanced-plotting-of-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced plotting of results</h2>
+
+<p>The default plot of the results are in a figure (.png) with all the PCs colored according to the clusters.
+If you want to change the extension of the figure or the color arrangement,
+change the parameters in the config file (see HOW_TO_USE_CONFIG).</p>
+
+<p>If you want other options, there are a few available using keys in the terminal when executing the <code>PLOT</code> command.
+Here are the plossibilities:</p>
+
+<pre><code>-nd (or --no_diag   ) : do not plot diagonal
+-nf (or --no_fit    ) : do not fit in all dimensions simultanniously
+-nc (or --no_colors ) : do not use colors
+-nl (or --no_label  ) : do not plot label
+-w  (or --window    ) : keep plot in interactive window, this will not save the output automaticaly
+-pp (or --plot_pars ) : plot specified pars, takes a string as input (ex: "1 2")
+-hs (or --horiz_space) : set horizontal spacing between the plots
+-vs (or --vert_space) : set vertical spacing between the plots
+</code></pre>
+
+<p>You can also see them by executing</p>
+
+<pre><code>PLOT -h
+</code></pre>
+
+<h2>
+<a id="advanced-plotting-of-spectra" class="anchor" href="#advanced-plotting-of-spectra" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced plotting of spectra</h2>
+
+<p>A plot of the orginial spectra by groups is also produced in a figure (.pdf).
+The main figure shows the mean value of the spectra of each cluster found.</p>
+
+<p>If you add the key -a , it will also produce a individual plot for each cluster with all the spectra and the mean value.
+In the default option of extension (.pdf), all plots are grouped in a single file with multiple pages.
+In other cases a extra file for each cluster will be created.</p>
+
+<p>The parameters for plotting the spectra are:</p>
+
+<pre><code>-w  (or --window    ) : keep plot in interactive window, this will not save the output automaticaly
+-a  (or --all_spec  ) : plot all spectra
+</code></pre>
+
+<p>You can also see them by executing</p>
+
+<pre><code>PLOT_SPECS -h
+</code></pre>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/COINtoolbox/DRACULA/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/COINtoolbox/DRACULA/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/COINtoolbox/DRACULA"></a> is maintained by <a href="https://github.com/COINtoolbox">COINtoolbox</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
