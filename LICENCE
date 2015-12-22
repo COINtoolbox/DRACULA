@@ -5,7 +5,7 @@ DRACULA is a software designed to make classification of objects using dimension
 This package was introduced for exploring the spectroscopic diversity of type Ia supernovae
 in M. Sasdelli et al. 2015 (http://arxiv.org/abs/1512.06810).
 The code has as base the tools developed in scikit-learn (Pedregosa et al., JMLR 12, pp. 2825-2830, 2011),
-with some usage requiring also the H2O pachage (http://h2o.ai/resources/).
+with some usage requiring also the H2O package (http://h2o.ai/resources/).
 
 Nevertheless, this code was developed for easy interface and can be 
 applied to make classification and separation of several types of objects.
