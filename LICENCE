@@ -1,0 +1,26 @@
+DRACULA - Dimensionality Reduction And Clustering for Unsupervised Learning in Astronomy
+
+
+DRACULA is a software designed to make classification of objects using dimensionality reduction and clustering.
+This package was introduced for exploring the spectroscopic diversity of type Ia supernovae
+in M. Sasdelli et al. 2015 (http://arxiv.org/abs/1512.06810).
+The code has as base the tools developed in scikit-learn (Pedregosa et al., JMLR 12, pp. 2825-2830, 2011),
+with some usage requiring also the H2O pachage (http://h2o.ai/resources/).
+
+Nevertheless, this code was developed for easy interface and can be 
+applied to make classification and separation of several types of objects.
+
+
+Copyright (C) 2015  Michel Aguena
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    See <http://www.gnu.org/licenses/>
