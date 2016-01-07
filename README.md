@@ -1,12 +1,23 @@
 # DRACULA - Dimensionality Reduction And Clustering for Unsupervised Learning in Astronomy
+
+If you use DRACULA in your research, please cite [Sasdelli et al, 2015](http://arxiv.org/abs/1512.06810)
+
+DRACULA is distributed under GPL3 or latter and is maintained by Michel Aguena (University of Sao Paulo).
+
+If you have any questions, suggestions or just want to be updated about new capabilities added to this code, please send an email to coin_dracula+subscribe@googlegroups.com .
+
+
 Pipeline to use all methods of data reduction and clustering.
 Some cluster quality methods were also implemented.
 So far we have implemented:
 
-* For data reduction:
+* For dimensionality reduction:
 	* PCA
 	* empca
-	* DeepLearning (requires `R`, `h2o` for `R` and `rpy2`)
+    * kernel PCA
+    * isomap
+	* DeepLearning 
+    * SOM
 * For clustering:
 	* MeanShift
 	* KMeans
@@ -20,11 +31,23 @@ So far we have implemented:
 	* vrc
 
 ## Requirements
-To run fully this pipeline, you will need:
+To run the basic features of this pipeline, you will need:
 
-	numpy
-	matplotlib
-	sklearn
+	[numpy](http://www.numpy.org/)
+	[matplotlib](http://matplotlib.org/)
+	[sklearn](http://scikit-learn.org/stable/)
+
+Deep Learning requires:
+
+    [R](https://www.r-project.org/)
+    [rpy2](http://rpy2.readthedocs.org/en/version_2.7.x/)
+    [h2o](http://h2o.ai/product/deep-learning/)
+
+Additional packages are necessary for:
+
+    [EMPCA](https://github.com/sbailey/empca)
+    [SOM](https://github.com/JustGlowing/minisom)
+
 
 ## Basic use
 The idea of the code is to get the function of the pipeline and run the code in a outside dir.
