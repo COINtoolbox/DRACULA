@@ -1,10 +1,11 @@
 # DRACULA - Dimensionality Reduction And Clustering for Unsupervised Learning in Astronomy
 
-If you use DRACULA in your research, please cite [Sasdelli et al, 2015](http://arxiv.org/abs/1512.06810).
-
 DRACULA is distributed under GPL3 or latter and is maintained by Michel Aguena (University of Sao Paulo).
 
 If you have any questions, suggestions or just want to be updated about new capabilities added to this code, please send an email to coin_dracula+subscribe@googlegroups.com .
+
+
+If you use DRACULA in your research, please cite [Sasdelli et al, 2015](http://arxiv.org/abs/1512.06810).
 
 ## Overview
 
