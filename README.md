@@ -1,4 +1,4 @@
-# Pipeline for the use of data reduction and clustering
+# DRACULA - Dimensionality Reduction And Clustering for Unsupervised Learning in Astronomy
 Pipeline to use all methods of data reduction and clustering.
 Some cluster quality methods were also implemented.
 So far we have implemented:
