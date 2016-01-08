@@ -44,14 +44,17 @@ To run the basic features of this pipeline, you will need:
 
 Deep Learning requires:
 
-    [R](https://www.r-project.org/)
-    [rpy2](http://rpy2.readthedocs.org/en/version_2.7.x/)
-    [h2o](http://h2o.ai/product/deep-learning/)
+[R](https://www.r-project.org/)
+
+[rpy2](http://rpy2.readthedocs.org/en/version_2.7.x/)
+
+[h2o](http://h2o.ai/product/deep-learning/)
 
 Additional packages are necessary for:
 
-    [EMPCA](https://github.com/sbailey/empca)
-    [SOM](https://github.com/JustGlowing/minisom)
+[EMPCA](https://github.com/sbailey/empca)
+
+[SOM](https://github.com/JustGlowing/minisom)
 
 
 ## Basic use
