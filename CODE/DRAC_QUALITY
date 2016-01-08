@@ -3,7 +3,7 @@ from Drac.EXEC import do_quality
 if __name__=='__main__':
 	print '''
 ################################################
-########## BEGINNING HMV PIPELINE ##############
+########## BEGINNING DRACULA QUALITY ###########
 ################################################
 '''
 	print "** QUALITY CHECK **\n"

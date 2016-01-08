@@ -2,7 +2,7 @@
 if __name__=='__main__':
 	print('''
 ################################################
-########## BEGINNING DRACULA - SOM #############
+########## BEGINNING DRACULA - SOM_PLOT ########
 ################################################
 ''')
 	from Drac.SOM import plot_som
