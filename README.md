@@ -36,9 +36,9 @@ So far we have implemented:
 ## Requirements
 To run the basic features of this pipeline, you will need:
 
-	[numpy](http://www.numpy.org/)
-	[matplotlib](http://matplotlib.org/)
-	[sklearn](http://scikit-learn.org/stable/)
+[numpy](http://www.numpy.org/)
+[matplotlib](http://matplotlib.org/)
+[sklearn](http://scikit-learn.org/stable/)
 
 Deep Learning requires:
 
