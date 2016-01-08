@@ -3,7 +3,7 @@ from Drac.EXEC import plot
 if __name__=='__main__':
 	print '''
 ################################################
-########## BEGINNING HMV PIPELINE ##############
+########## BEGINNING DRACULA PLOT ##############
 ################################################
 '''
 	print "** PLOTTING **\n"

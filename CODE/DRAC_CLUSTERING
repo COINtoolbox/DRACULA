@@ -3,7 +3,7 @@ from Drac.EXEC import cluster
 if __name__=='__main__':
 	print '''
 ################################################
-########## BEGINNING HMV PIPELINE ##############
+########## BEGINNING DRACULA CLUSTERING ########
 ################################################
 '''
 	print "** CLUSTERING **\n"

@@ -3,7 +3,7 @@ from Drac.EXEC import reduc
 if __name__=='__main__':
 	print '''
 ################################################
-########## BEGINNING HMV PIPELINE ##############
+########## BEGINNING DRACULA REDUCTION #########
 ################################################
 '''
 	print "** REDUCTION **\n"

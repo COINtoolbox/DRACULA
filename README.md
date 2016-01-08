@@ -1,12 +1,26 @@
-# Pipeline for the use of data reduction and clustering
+# DRACULA - Dimensionality Reduction And Clustering for Unsupervised Learning in Astronomy
+
+DRACULA is distributed under GPL3 or latter.
+It is one of the products of the second edition of the [COIN Residence Program](http://iaacoin.wix.com/crp2015) and is maintained by Michel Aguena (University of Sao Paulo).
+
+If you have any questions, suggestions or just want to be updated about the development of the code, please send an email to coin_dracula+subscribe@googlegroups.com .
+
+
+If you use DRACULA in your research, please cite [Sasdelli et al, 2015](http://arxiv.org/abs/1512.06810).
+
+## Overview
+
 Pipeline to use all methods of data reduction and clustering.
 Some cluster quality methods were also implemented.
 So far we have implemented:
 
-* For data reduction:
+* For dimensionality reduction:
 	* PCA
 	* empca
-	* DeepLearning (requires `R`, `h2o` for `R` and `rpy2`)
+    * kernel PCA
+    * isomap
+	* DeepLearning 
+    * SOM
 * For clustering:
 	* MeanShift
 	* KMeans
@@ -20,11 +34,28 @@ So far we have implemented:
 	* vrc
 
 ## Requirements
-To run fully this pipeline, you will need:
+To run the basic features of this pipeline, you will need:
 
-	numpy
-	matplotlib
-	sklearn
+[numpy](http://www.numpy.org/)
+
+[matplotlib](http://matplotlib.org/)
+
+[sklearn](http://scikit-learn.org/stable/)
+
+Deep Learning requires:
+
+[R](https://www.r-project.org/)
+
+[rpy2](http://rpy2.readthedocs.org/en/version_2.7.x/)
+
+[h2o for R](http://h2o-release.s3.amazonaws.com/h2o/rel-lambert/5/docs-website/Ruser/Rinstall.html)
+
+Additional packages are necessary for:
+
+[EMPCA](https://github.com/sbailey/empca)
+
+[SOM](https://github.com/JustGlowing/minisom)
+
 
 ## Basic use
 The idea of the code is to get the function of the pipeline and run the code in a outside dir.
@@ -76,29 +107,29 @@ Now you are ready to run the pipeline functions!
 ### Pipeline function
 Inside your own working dir with the config.py file you can use any of these functions:
 
-To run the whole pipeline execute:
+To run the whole pipeline (dimensionality reduction, clustering, quality tests and ploting) execute:
 
-	ALL
+	DRAC_ALL
 
 To run just the reduction part execute:
 
-	REDUCTION
+	DRAC_REDUCTION
 
 To run just the clustering execute:
 
-	CLUSTERING
+	DRAC_CLUSTERING
 
 To run just the clustering quality execute:
 
-	QUALITY
+	DRAC_QUALITY
 
 To run just the plotting execute:
 
-	PLOT
+	DRAC_PLOT
 
 To run just the plotting of the spectra by gorups execute:
 
-	PLOT_SPECS
+	DRAC_PLOT_SPECS
 
 ## Outputs
 The outputs of reduction methods are placed in `red_data/`.
@@ -131,7 +162,7 @@ Here are the plossibilities:
 
 You can also see them by executing
 
-	PLOT -h
+	DRAC_PLOT -h
 
 
 ## Advanced plotting of spectra
@@ -149,4 +180,4 @@ The parameters for plotting the spectra are:
 
 You can also see them by executing
 
-	PLOT_SPECS -h
+	DRAC_PLOT_SPECS -h

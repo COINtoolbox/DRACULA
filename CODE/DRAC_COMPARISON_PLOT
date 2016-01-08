@@ -2,7 +2,7 @@
 if __name__=='__main__':
 	print '''
 ################################################
-########## BEGINNING DRACULA COMP ##############
+########## BEGINNING DRACULA COMP_PLOT #########
 ################################################
 '''
 	from Drac.COMPARISON import plot_comparison

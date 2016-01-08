@@ -3,7 +3,7 @@ from Drac.EXEC import plot_spec
 if __name__=='__main__':
 	print '''
 ################################################
-########## BEGINNING HMV PIPELINE ##############
+########## BEGINNING DRACULA PLOT_SPECS ########
 ################################################
 '''
 	print "** PLOTTING SPECS **\n"
