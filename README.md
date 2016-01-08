@@ -88,7 +88,7 @@ There are two approaches for using the pipeline
 It is very easy to prepare your environment to run the pipeline.
 It can be done in 2 steps:
 
-1. Get the nice functions we prepared. In the pipeline dir, do the command:
+1.Get the nice functions we prepared. In the pipeline dir, do the command:
 
 	source SOURCE_ME
 
@@ -96,7 +96,7 @@ It can be done in 2 steps:
 
 	export PATH=$PATH:./:'path_to_folder_CODE/'
 
-2. Create your own dir (preferably outside the pipeline dir) to run the code and copy the config.py file there:
+2.Create your own dir (preferably outside the pipeline dir) to run the code and copy the config.py file there:
 
 	mkdir your_dir
 	cd your_dir
