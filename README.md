@@ -48,7 +48,7 @@ Deep Learning requires:
 
 [rpy2](http://rpy2.readthedocs.org/en/version_2.7.x/)
 
-[h2o](http://h2o.ai/product/deep-learning/)
+[h2o for R](http://h2o-release.s3.amazonaws.com/h2o/rel-lambert/5/docs-website/Ruser/Rinstall.html)
 
 Additional packages are necessary for:
 
@@ -103,29 +103,29 @@ Now you are ready to run the pipeline functions!
 ### Pipeline function
 Inside your own working dir with the config.py file you can use any of these functions:
 
-To run the whole pipeline execute:
+To run the whole pipeline (dimensionality reduction, clustering, quality tests and ploting) execute:
 
-	ALL
+	DRAC_ALL
 
 To run just the reduction part execute:
 
-	REDUCTION
+	DRAC_REDUCTION
 
 To run just the clustering execute:
 
-	CLUSTERING
+	DRAC_CLUSTERING
 
 To run just the clustering quality execute:
 
-	QUALITY
+	DRAC_QUALITY
 
 To run just the plotting execute:
 
-	PLOT
+	DRAC_PLOT
 
 To run just the plotting of the spectra by gorups execute:
 
-	PLOT_SPECS
+	DRAC_PLOT_SPECS
 
 ## Outputs
 The outputs of reduction methods are placed in `red_data/`.
@@ -158,7 +158,7 @@ Here are the plossibilities:
 
 You can also see them by executing
 
-	PLOT -h
+	DRAC_PLOT -h
 
 
 ## Advanced plotting of spectra
@@ -176,4 +176,4 @@ The parameters for plotting the spectra are:
 
 You can also see them by executing
 
-	PLOT_SPECS -h
+	DRAC_PLOT_SPECS -h
