@@ -92,7 +92,7 @@ It can be done in 2 steps:
 
 	source SOURCE_ME
 
-Alternatively, you can enable your computer to always have access to the DRACULA functions by adding the following line to your `.bashrc` file: 
+* Alternatively, you can enable your computer to always have access to the DRACULA functions by adding the following line to your `.bashrc` file: 
 
 	export PATH=$PATH:./:'path_to_folder_CODE/'
 
