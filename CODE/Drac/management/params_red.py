@@ -23,7 +23,9 @@ DeepLearning_dict=dict([
 	[ 'hidden'		, 'c(120,100,90,50,30,20,4,20,30,50,90,100,120)'],
 	[ 'epochs'		, '100'						],
     [ 'seed'        , 1 ],
+    [ 'reproducible', 'TRUE'],
 	[ 'ignore_const_cols'	, 'F'						],
+    [ 'nthreads', 1]
 ])
 
 isomap_dict=dict([

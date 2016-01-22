@@ -36,7 +36,7 @@ def reduction(data, params):
 	  
 #	print('******************* Read data *********************')
 	## Read data
-	r('h2oServer <- h2o.init(nthreads=-1)')
+	r('h2oServer <- h2o.init(nthreads=1)')
 	r('TRAIN = "%s" '% (in_file_cvs))
 	r('train.hex <- h2o.importFile(path = TRAIN, header = F, parse = TRUE, col.names=NULL, col.types=NULL, sep = ",", destination_frame="train.hex")')
 	
@@ -44,6 +44,7 @@ def reduction(data, params):
 	## Construct deep learning model
 #	print('dlmodel <- h2o.deeplearning( %s ) ' % (in_param))
 	r('dlmodel <- h2o.deeplearning( %s ) ' % (in_param))
+	
 	
 #	print('******************* Generate new features *********************')
 	## Generate new features
@@ -54,4 +55,5 @@ def reduction(data, params):
 	## Store new features in file
 	X = r('as.matrix(features_dl)')
 
+   
 	return X
