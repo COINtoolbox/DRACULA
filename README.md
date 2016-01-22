@@ -6,7 +6,7 @@ It is one of the products of the second edition of the [COIN Residence Program](
 If you have any questions, suggestions or just want to be updated about the development of the code, please send an email to coin_dracula+subscribe@googlegroups.com .
 
 
-If you use DRACULA in your research, please cite [Sasdelli et al, 2015](http://arxiv.org/abs/1512.06810).
+If you use DRACULA in your research, please cite [Sasdelli et al, 2015](http://arxiv.org/abs/1512.06810) and [Aguena et al., 2015](http://ascl.net/1512.009).
 
 ## Overview
 
