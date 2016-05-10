@@ -25,8 +25,9 @@ def run_comparison():
 		CASE_LINE="******************* CASE "+str(ind)+" *******************************************"
 		BORD_LINE=''
 		for x in CASE_LINE: BORD_LINE+='*'
-		if isinstance(VAL, str)	: VAL='"'+str(VAL)+'"'
-		else 			: VAL=str(VAL)
+		if VAR_PAR not in ['REDUCTION_METHOD','CLUSTERING_METHOD']:
+			if isinstance(VAL, str)	: VAL='"'+str(VAL)+'"'
+			else 			: VAL=str(VAL)
 		case,case_red='.case'+str(ind),''
 	
 	
