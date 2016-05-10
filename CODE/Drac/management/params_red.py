@@ -11,7 +11,7 @@ kpca_dict=dict([
 empca_dict=dict([
 	[ 'errors_file'	        , None	],
 	[ 'n_components'	, 6			],
-        [ 'smooth'	        , 0			],
+    [ 'smooth'	        , 0			],
 	[ 'n_iter'	        , 50			],
 ])
 
@@ -20,9 +20,12 @@ DeepLearning_dict=dict([
 	[ 'training_frame'	, 'train.hex'					],
 	[ 'activation'		, '"Tanh"'					],
 	[ 'autoencoder'		, 'T'						],
-	[ 'hidden'		, 'c(120,100,90,50,30,20,2,20,30,50,90,100,120)'],
+	[ 'hidden'		, 'c(120,100,90,50,30,20,4,20,30,50,90,100,120)'],
 	[ 'epochs'		, '100'						],
+    [ 'seed'        , 1 ],
+    [ 'reproducible', 'TRUE'],
 	[ 'ignore_const_cols'	, 'F'						],
+    [ 'nthreads', 1]
 ])
 
 isomap_dict=dict([
