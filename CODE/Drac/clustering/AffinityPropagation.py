@@ -1,10 +1,13 @@
 from sklearn.cluster import AffinityPropagation
+from aux import ERROR
 
 def clustering(data, params):
 
     # parse arguments
 
+    possible_keys=['preference','convergence_iter','max_iter','damping','affinity',]
     for item in params:
+	if item not in possible_keys: ERROR(item)
         if isinstance(params[item], str):
             exec(item+'='+'"'+params[item]+'"')
         else:

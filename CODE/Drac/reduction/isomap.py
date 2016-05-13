@@ -1,11 +1,14 @@
 from sklearn import manifold
+from aux import ERROR
 
 
 def reduction(data, params):
 
     # parse parameters
 
+    possible_keys=['n_neighbors','n_components','eigen_solver','tol','max_iter','path_method','neighbors_algorithm',]
     for item in params:
+	if item not in possible_keys: ERROR(item)
         if isinstance(params[item], str):
             exec(item+'='+'"'+params[item]+'"')
         else:
