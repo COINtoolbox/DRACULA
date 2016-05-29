@@ -31,19 +31,32 @@
       </header>
       <section>
         <h1>
-<a id="pipeline-for-the-use-of-data-reduction-and-clustering" class="anchor" href="#pipeline-for-the-use-of-data-reduction-and-clustering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pipeline for the use of data reduction and clustering</h1>
+<a id="dracula---dimensionality-reduction-and-clustering-for-unsupervised-learning-in-astronomy" class="anchor" href="#dracula---dimensionality-reduction-and-clustering-for-unsupervised-learning-in-astronomy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DRACULA - Dimensionality Reduction And Clustering for Unsupervised Learning in Astronomy</h1>
+
+<p>DRACULA is distributed under GPL3 or latter.
+It is one of the products of the second edition of the <a href="http://iaacoin.wix.com/crp2015">COIN Residence Program</a> and is maintained by Michel Aguena (University of Sao Paulo).</p>
+
+<p>If you have any questions, suggestions or just want to be updated about the development of the code, please send an email to <a href="mailto:coin_dracula+subscribe@googlegroups.com">coin_dracula+subscribe@googlegroups.com</a> .</p>
+
+<p>If you use DRACULA in your research, please cite <a href="http://arxiv.org/abs/1512.06810">Sasdelli et al, 2015</a> and <a href="http://ascl.net/1512.009">Aguena et al., 2015</a>.</p>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
 
 <p>Pipeline to use all methods of data reduction and clustering.
 Some cluster quality methods were also implemented.
 So far we have implemented:</p>
 
 <ul>
-<li>For data reduction:
+<li>For dimensionality reduction:
 
 <ul>
 <li>PCA</li>
 <li>empca</li>
-<li>DeepLearning (requires <code>R</code>, <code>h2o</code> for <code>R</code> and <code>rpy2</code>)</li>
+<li>kernel PCA</li>
+<li>isomap</li>
+<li>DeepLearning </li>
+<li>SOM</li>
 </ul>
 </li>
 <li>For clustering:
@@ -68,17 +81,32 @@ So far we have implemented:</p>
 </ul>
 
 <h2>
-<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h2>
 
-<p>To run fully this pipeline, you will need:</p>
+<p>To run the basic features of this pipeline, you will need:</p>
 
-<pre><code>numpy
-matplotlib
-sklearn
-</code></pre>
+<p><a href="http://www.numpy.org/">numpy</a></p>
+
+<p><a href="http://matplotlib.org/">matplotlib</a></p>
+
+<p><a href="http://scikit-learn.org/stable/">sklearn</a></p>
+
+<p>Deep Learning requires:</p>
+
+<p><a href="https://www.r-project.org/">R</a></p>
+
+<p><a href="http://rpy2.readthedocs.org/en/version_2.7.x/">rpy2</a></p>
+
+<p><a href="http://h2o-release.s3.amazonaws.com/h2o/rel-lambert/5/docs-website/Ruser/Rinstall.html">h2o for R</a></p>
+
+<p>Additional packages are necessary for:</p>
+
+<p><a href="https://github.com/sbailey/empca">EMPCA</a></p>
+
+<p><a href="https://github.com/JustGlowing/minisom">SOM</a></p>
 
 <h2>
-<a id="basic-use" class="anchor" href="#basic-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic use</h2>
+<a id="basic-use" class="anchor" href="#basic-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic use</h2>
 
 <p>The idea of the code is to get the function of the pipeline and run the code in a outside dir.
 You should first prepare your environment with two simple steps.</p>
@@ -114,17 +142,22 @@ See the README_COMPARISON file for more information.</p>
 </ul>
 
 <h3>
-<a id="prepare-environment" class="anchor" href="#prepare-environment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prepare environment</h3>
+<a id="prepare-environment" class="anchor" href="#prepare-environment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prepare environment</h3>
 
 <p>It is very easy to prepare your environment to run the pipeline.
 It can be done in 2 steps:</p>
 
-<p>Get the nice functions we prepared. In the pipeline dir, do the command:</p>
+<p>1.Get the nice functions we prepared. In the pipeline dir, do the command:</p>
 
 <pre><code>source SOURCE_ME
 </code></pre>
 
-<p>Create your own dir (preferably outside the pipeline dir) to run the code and copy the config.py file there:</p>
+<p>Alternatively, you can enable your computer to always have access to the DRACULA functions by adding the following line to your <code>.bashrc</code> file: </p>
+
+<pre><code>export PATH=$PATH:./:'path_to_folder_CODE/'
+</code></pre>
+
+<p>2.Create your own dir (preferably outside the pipeline dir) to run the code and copy the config.py file there:</p>
 
 <pre><code>mkdir your_dir
 cd your_dir
@@ -134,42 +167,42 @@ cp PIPELINE_DIR/example_configs/config.py config.py
 <p>Now you are ready to run the pipeline functions!</p>
 
 <h3>
-<a id="pipeline-function" class="anchor" href="#pipeline-function" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pipeline function</h3>
+<a id="pipeline-function" class="anchor" href="#pipeline-function" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pipeline function</h3>
 
 <p>Inside your own working dir with the config.py file you can use any of these functions:</p>
 
-<p>To run the whole pipeline execute:</p>
+<p>To run the whole pipeline (dimensionality reduction, clustering, quality tests and ploting) execute:</p>
 
-<pre><code>ALL
+<pre><code>DRAC_ALL
 </code></pre>
 
 <p>To run just the reduction part execute:</p>
 
-<pre><code>REDUCTION
+<pre><code>DRAC_REDUCTION
 </code></pre>
 
 <p>To run just the clustering execute:</p>
 
-<pre><code>CLUSTERING
+<pre><code>DRAC_CLUSTERING
 </code></pre>
 
 <p>To run just the clustering quality execute:</p>
 
-<pre><code>QUALITY
+<pre><code>DRAC_QUALITY
 </code></pre>
 
 <p>To run just the plotting execute:</p>
 
-<pre><code>PLOT
+<pre><code>DRAC_PLOT
 </code></pre>
 
 <p>To run just the plotting of the spectra by gorups execute:</p>
 
-<pre><code>PLOT_SPECS
+<pre><code>DRAC_PLOT_SPECS
 </code></pre>
 
 <h2>
-<a id="outputs" class="anchor" href="#outputs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Outputs</h2>
+<a id="outputs" class="anchor" href="#outputs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Outputs</h2>
 
 <p>The outputs of reduction methods are placed in <code>red_data/</code>.
 They will be input for clustering and plotting unless stated otherwise.</p>
@@ -182,7 +215,7 @@ They will be input for plotting unless stated otherwise.</p>
 <p>All modules also print the information used and resulting in <code>info/</code>.</p>
 
 <h2>
-<a id="advanced-plotting-of-results" class="anchor" href="#advanced-plotting-of-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced plotting of results</h2>
+<a id="advanced-plotting-of-results" class="anchor" href="#advanced-plotting-of-results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Advanced plotting of results</h2>
 
 <p>The default plot of the results are in a figure (.png) with all the PCs colored according to the clusters.
 If you want to change the extension of the figure or the color arrangement,
@@ -203,11 +236,11 @@ Here are the plossibilities:</p>
 
 <p>You can also see them by executing</p>
 
-<pre><code>PLOT -h
+<pre><code>DRAC_PLOT -h
 </code></pre>
 
 <h2>
-<a id="advanced-plotting-of-spectra" class="anchor" href="#advanced-plotting-of-spectra" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced plotting of spectra</h2>
+<a id="advanced-plotting-of-spectra" class="anchor" href="#advanced-plotting-of-spectra" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Advanced plotting of spectra</h2>
 
 <p>A plot of the orginial spectra by groups is also produced in a figure (.pdf).
 The main figure shows the mean value of the spectra of each cluster found.</p>
@@ -224,7 +257,7 @@ In other cases a extra file for each cluster will be created.</p>
 
 <p>You can also see them by executing</p>
 
-<pre><code>PLOT_SPECS -h
+<pre><code>DRAC_PLOT_SPECS -h
 </code></pre>
       </section>
       <footer>
