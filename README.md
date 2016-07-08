@@ -1,3 +1,5 @@
+![Dracula Logo](/images/logo.png)
+
 # DRACULA - Dimensionality Reduction And Clustering for Unsupervised Learning in Astronomy
 
 DRACULA is distributed under GPL3 or latter.

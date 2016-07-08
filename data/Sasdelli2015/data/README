@@ -1,0 +1,63 @@
+Created by Emille Ishida in January 11th, 2015
+
+This folder contains all data used in Sasdelli et al., 2015.
+
+
+- clustering_KMeans_4features_4groups.dat
+Centers of the 4 groups found when applying the Kmeans algorithm (demanding 4 groups) to the 4-dimensional deep learning results. 
+
+- clustering_KMeans_label_4features_2groups.dat
+- clustering_KMeans_label_4features_3groups.dat
+- clustering_KMeans_label_4features_4groups.dat
+Labels assigned by the Kmeans algorithm when applied to the 4-dimensional deep learning results.
+Files correspond to results when 2, 3, and 4 groups are required. 
+each line correspond to the class of one SNIa spectra at maximum.
+
+- derivatives_all_epochs.dat 
+Derivative of the log flux of all SNIa spectra in our sample. 
+This is the file given as input to the Deep Learning algorithm. 
+
+- DL_4features_all_epochs.dat
+4-dimensional deep learning representation for all spectra in the initial sample.
+
+- DL_4features_atmax.dat
+4-dimensional deep learning representation for SNIa spectra at maximum. 
+
+- DL_4features_predictions.dat
+4-dimensional predictions from deep learning used for the reconstruction of observed spectra. 
+
+- fluxes_all_epochs.dat
+observed fluxes for all spectra in the initial sample, after smoothing. 
+
+- fluxes_atmax.dat
+observed fluxes for SNIa spectra at maximum, after smoothing. 
+
+- fluxes_not_res.dat.gz
+original fluxes used for reconstruction, before smoothing. 
+
+- indx_counts.dat
+- indx_unique.dat
+- w.dat
+indexes used for quick SOM plot
+
+- mask.dat
+identification for all objects in the initial data sample. 
+if 1: spectra at maximum 
+
+- reduced_data_pca_7PC.dat
+projectios from 7-dimensional PC parameter space for all objects in the initial sample
+
+- residuals.dat
+residuals between reconstructed and measured spectra for all objects in the initial sample. 
+
+- residuals_all_matrix.dat
+residuals between reconstructed and measured spectra for SNIa at maximum. 
+
+- spectra_data_id.dat
+identification of all objects in the initial data sample (SN, zhelio, MJD, epoch, at_max_flag)
+
+- wang_class.dat
+labels according to the Wang et al, 2009 classification for SNIa spectra at maximum
+
+- wang_data.dat
+information on the classification defined by Wang et al,2009

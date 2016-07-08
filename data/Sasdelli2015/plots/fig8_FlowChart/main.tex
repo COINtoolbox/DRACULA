@@ -1,0 +1,216 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you give
+% someone the link to this page, they can edit at the same
+% time. See the help menu above for more info. Enjoy!
+%
+% Note: you can export the pdf to see the result at full
+% resolution.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TikZ and PGF 2.00
+% Source: TikZ and PGF manual
+\documentclass{article}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shapes,decorations,shadows,arrows,positioning}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.shapes}
+\usetikzlibrary{shapes.geometric,arrows.meta,decorations.markings}
+\usetikzlibrary{fadings}
+\usetikzlibrary{patterns}
+\usetikzlibrary{calc}
+\usepackage{verbatim}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{decorations.footprints}
+\usetikzlibrary{decorations.fractals}
+\usetikzlibrary{shapes.gates.logic.IEC}
+\usetikzlibrary{shapes.gates.logic.US}
+\usetikzlibrary{fit,chains}
+\usetikzlibrary{positioning}
+\usepgflibrary{shapes}
+\usetikzlibrary{scopes}
+\usepackage{multirow}
+\usepackage{arydshln}
+
+\begin{document}
+\thispagestyle{empty}
+
+\tikzset{paint/.style={ draw=#1!50!black, fill=#1!50 },
+    decorate with/.style=
+    {decorate,decoration={shape backgrounds,shape=#1,shape size=2mm}}}
+    
+\tikzset{
+  big dot/.style={circle, draw, inner sep=0pt, minimum size=3mm, fill=yellow},
+  input/.style={draw, trapezium, trapezium left angle=60, trapezium right angle=120,
+    line width=1.2pt, fill={rgb:black,1;white,2}},
+  obstacle/.style={draw, trapezium, trapezium left angle=120, trapezium right angle=60,
+    line width=1.2pt, fill={rgb:black,1;white,2}},
+  flash/.style args={#1:#2}{postaction=decorate,decoration={name=markings,
+    mark=at position #1 with {%
+    \draw[fill=#2, line width=.75\pgflinewidth, line cap=round, line join=round]
+         (+\pgflinewidth,+7\pgflinewidth)   -- ++ ( left:+2\pgflinewidth) 
+      -- (+-4\pgflinewidth,+-\pgflinewidth) -- ++ (right:+5\pgflinewidth)
+      -- (+-\pgflinewidth,+-7\pgflinewidth) -- ++ (right:+2\pgflinewidth)
+      -- (+4\pgflinewidth,\pgflinewidth)    -- ++ (left:+5\pgflinewidth)
+      -- cycle;}}}
+}    
+
+% Define block styles
+     \tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, text width=6em, text centered,draw=black,                       fill=green!35]
+     \tikzstyle{dia} = [circle, draw, fill=gray!5, 
+                            text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+     \tikzstyle{block} = [rectangle, draw, fill=blue!40, 
+                         text width=5em, text centered, rounded corners, minimum height=4em]
+% \tikzstyle{cloud} = [draw, ellipse,fill=cyan!45, 
+%                         minimum height=4em]
+     \tikzstyle{polygon}= [draw,regular polygon,regular polygon sides=7,fill=orange!35,text  centered,text width=3.75em,
+                            minimum height=1em]
+    \tikzstyle{cloud2}= [cloud, draw,cloud puffs=15.7, cloud ignores aspect, minimum width=4cm, minimum height=2.25cm, align=center,fill=gray!15]                          
+              
+ %Line types                        
+     \tikzstyle{line}  = [draw, -latex']
+      \tikzstyle{ephemeral}  = [draw,ultra thick,-latex', blue]
+     \tikzstyle{line2}  = [draw, -latex',out=-20,in=-70]
+    
+
+
+
+\begin{tikzpicture}[very thick,
+  StealthFill/.tip={Stealth[line width=1pt, scale=1.5]}, arrows={[round]}]
+\matrix[nodes={draw},
+    row sep= 1.25cm,column sep=1.5cm,minimum width=.875cm, minimum height=2.5cm] {
+    \node[cylinder,shape border rotate=90,aspect=0.25, cylinder uses custom fill,
+    cylinder body fill=gray!15,
+    cylinder end  fill=orange!30,  minimum height=2.5cm,minimum width=2.5cm](data) {Data Pre-Processing}; 
+    &
+         \node[rectangle split, align=center,fill=gray!5, rectangle split parts=2, draw, text width= 3.5cm,minimum width=3cm](visual)
+         {
+         Graphical Output
+         \nodepart{second}
+             SOM grid
+              }
+        
+     
+         ;
+         \\
+    %
+    \node[rectangle split, fill=gray!5, rectangle split parts=2, draw, text width= 4.75 cm,minimum width=5cm](DR)
+        {\quad Dimensionality Reduction
+      \nodepart{second}
+    \begin{tabular}{l l l}
+  PCA & \textcolor{blue}{Deep Learning} \\
+  EMPCA & \textcolor{RedViolet}{Isomap} \\ 
+  KPCA &  \\
+\end{tabular}
+        };
+        &
+         \node[dia](som){\textcolor{RedViolet}{SOM}};
+        \\
+    %
+    \node[rectangle split, fill=gray!5, rectangle split parts=2, draw, text width= 4.75cm,minimum width=5cm](UL)
+        {\qquad Unsupervised Clustering
+      \nodepart{second}
+    \begin{tabular}{c c }
+  \textcolor{blue}{k-means}\\ 
+   Mean Shift  \\
+  DBSCAN   \\ 
+  Affinity Propagation \\ 
+  Agglomerative Clustering
+ \end{tabular}
+        }; & 
+        \node[cylinder,aspect=1.25, cylinder uses custom fill,
+    cylinder body fill=gray!15,
+    cylinder end  fill=green!10,  minimum height=0.75 cm,minimum width=1.5cm](ext) {External Input};\\
+        
+%  \node[rectangle split,fill=gray!5, rectangle split parts=2, draw, text width= 4.75cm,minimum width=5cm](UL2)
+%        {\qquad Cluster Validation
+%      \nodepart{second}
+%      \begin{tabular}{c c c}
+%    \textcolor{blue}{Silhouette}&  Dunn \\
+%    Davis Bouldin & vrc \\ 
+%     \end{tabular}
+%        }; & 
+%        \node[cylinder,aspect=1.25, cylinder uses custom fill,
+%    cylinder body fill=gray!15,
+%    cylinder end  fill=green!10,  minimum height=0.75 cm,minimum width=1.5cm](ext2) {External Input};\\    
+        
+  \node[rectangle split,align=center, fill=gray!5, rectangle split parts=2, draw, text width= 3.5cm,minimum width=5cm](UL3)
+        {\qquad Graphical output 
+    \nodepart{second}
+   \begin{tabular}{c} 
+    \textcolor{blue}{2D scatter} \\
+    Mean input  \\ 
+    \textcolor{blue}{Mean spectra}  \\ 
+   \end{tabular}
+        }; & 
+        \node[cylinder,aspect=1.25, cylinder uses custom fill,
+    cylinder body fill=gray!15,
+    cylinder end  fill=green!10,  minimum height=0.75 cm,minimum width=1.5cm](ext3) {External Input};\\        
+};
+
+% Draw edges
+    
+    \path[line width=2.25pt, line cap=rect,dashed] (data) edge[-{StealthFill[fill=green]}](DR);
+%        \path[line width=2.25pt, line cap=rect,dashed] (data) edge[-{StealthFill[fill=green]}](som);
+     \path[line width=1.5pt, line cap=rect] (DR) edge[-{StealthFill[fill=red]}](som);
+        \path[line width=1.5pt, line cap=rect] (som) edge[-{StealthFill[fill=red]}](visual);
+    \path[line width=1.5pt, line cap=rect, dashed] (ext) edge[-{StealthFill[fill=green]}](UL);
+%    \path[line width=1.5pt, line cap=rect, dashed] (ext2) edge[-{StealthFill[fill=green]}](UL2);
+  \path[line width=1.5pt, line cap=rect, dashed] (ext3) edge[-{StealthFill[fill=green]}](UL3);
+    \path[line width=2.25pt, line cap=rect] (DR) edge[-{StealthFill[fill=red]}](UL);
+  \path[line width=2.25pt, line cap=rect] (UL) edge[-{StealthFill[fill=red]}](UL3);
+%    \path[line width=2.25pt, line cap=rect] (UL2) edge[-{StealthFill[fill=red]}](UL3);
+  
+\end{tikzpicture}
+
+
+
+% \begin{tikzpicture}[every node/.style={minimum size=1cm},on grid]
+% \begin{scope}[every node/.append style={yslant=-0.5},yslant=-0.5]
+%   \shade[right color=cyan!10, left color=red!20] (0,0) rectangle +(3,3);
+%   \node at (0.5,2.5) {9};
+%   \node at (1.5,2.5) {7};
+%   \node at (2.5,2.5) {1};
+%   \node at (0.5,1.5) {2};
+%   \node at (1.5,1.5) {4};
+%   \node at (2.5,1.5) {8};
+%   \node at (0.5,0.5) {5};
+%   \node at (1.5,0.5) {3};
+%   \node at (2.5,0.5) {6};
+%   \draw (0,0) grid (3,3);
+% \end{scope}
+% \begin{scope}[every node/.append style={yslant=0.5},yslant=0.5]
+%   \shade[right color=cyan!70,left color=gray!10] (3,-3) rectangle +(3,3);
+%   \node at (3.5,-0.5) {3};
+%   \node at (4.5,-0.5) {9};
+%   \node at (5.5,-0.5) {7};
+%   \node at (3.5,-1.5) {6};
+%   \node at (4.5,-1.5) {1};
+%   \node at (5.5,-1.5) {5};
+%   \node at (3.5,-2.5) {8};
+%   \node at (4.5,-2.5) {2};
+%   \node at (5.5,-2.5) {4};
+%   \draw (3,-3) grid (6,0);
+% \end{scope}
+% \begin{scope}[every node/.append style={yslant=0.5,xslant=-1},yslant=0.5,xslant=-1]
+%   \shade[bottom color=red!10, top color=cyan!20] (6,3) rectangle +(-3,-3);
+%   \node at (3.5,2.5) {1};
+%   \node at (3.5,1.5) {4};
+%   \node at (3.5,0.5) {7};
+%   \node at (4.5,2.5) {5};
+%   \node at (4.5,1.5) {6};
+%   \node at (4.5,0.5) {8};
+%   \node at (5.5,2.5) {2};
+%   \node at (5.5,1.5) {3};
+%   \node at (5.5,0.5) {9};
+%   \draw (3,0) grid (6,3);
+% \end{scope}
+% \end{tikzpicture}
+
+
+
+
+
+\end{document}
