@@ -1,7 +1,7 @@
 <table>
   <tr >
     <td><img src="https://raw.githubusercontent.com/COINtoolbox/DRACULA/master/images/logo.png"/></td>
-    <td align="right"><img src="https://raw.githubusercontent.com/COINtoolbox/DRACULA/master/images/coin.png" width="380"/></td>
+    <td align="right"><img src="https://raw.githubusercontent.com/COINtoolbox/DRACULA/master/images/coin.png" width="350"/></td>
 </table>
 
 # DRACULA - Dimensionality Reduction And Clustering for Unsupervised Learning in Astronomy
