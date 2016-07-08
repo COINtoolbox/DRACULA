@@ -1,13 +1,16 @@
 from rpy2.robjects import r
 import numpy as np
 import os,sys
+from aux import ERROR
 
 def reduction(data, params):
 
 	in_param	= ''
     # parse parameters
 
-	for item in params:
+    possible_keys=['n_layers','training_frame','activation','autoencoder','hidden','epochs','ignore_const_cols',]
+    for item in params:
+	    if item not in possible_keys: ERROR(item)
 	    if isinstance(params[item], str):
 	        in_param += ', '+item+' = '+params[item]
 	    else:

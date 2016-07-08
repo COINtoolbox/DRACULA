@@ -17,9 +17,7 @@ from management.info_work import prt,print_info,read_info
 
 def ERROR(message):
 	out='### **ERROR** - '+message+' ####'
-	line='\n'
-	for x in out: line+='#'
-	line+='\n'
+	line=''.join(['\n']+['#' for x in out]+['\n'])
 	print(line+out+line)
 	exit()
 def READ(NAME,MASK=''):

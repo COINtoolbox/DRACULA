@@ -1,4 +1,5 @@
 from numpy import loadtxt, mean
+from aux import ERROR
 
 
 """
@@ -459,7 +460,9 @@ def reduction(data, params):
 
     # parse arguments
 
+    possible_keys=['data_errors_file','n_components','smooth','n_iter',]
     for item in params:
+	if item not in possible_keys: ERROR(item)
         if isinstance(params[item], str):
             exec(item+'='+'"'+params[item]+'"')
         else:

@@ -1,12 +1,15 @@
 from sklearn.cluster import AgglomerativeClustering
 from numpy import mean, array
+from aux import ERROR
 
 
 def clustering(data, params):
 
     # parse parameters
 
+    possible_keys=['n_clusters','affinity','linkage',]
     for item in params:
+	if item not in possible_keys: ERROR(item)
         if isinstance(params[item], str):
             exec(item+'='+'"'+params[item]+'"')
         else:

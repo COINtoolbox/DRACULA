@@ -1,11 +1,14 @@
 from sklearn.cluster import KMeans
+from aux import ERROR
 
 
 def clustering(data, params):
 
     # parse arguments
 
+    possible_keys=['n_clusters','tol','init','n_jobs',]
     for item in params:
+	if item not in possible_keys: ERROR(item)
         if isinstance(params[item], str):
             exec(item+'='+'"'+params[item]+'"')
         else:

@@ -1,11 +1,14 @@
 from sklearn.decomposition import KernelPCA
+from aux import ERROR
 
 
 def reduction(data, params):
 
     # parse parameters
 
+    possible_keys=['n_components','kernel',]
     for item in params:
+	if item not in possible_keys: ERROR(item)
         if isinstance(params[item], str):
             exec(item+'='+'"'+params[item]+'"')
         else:
