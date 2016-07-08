@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/COINtoolbox/DRACULA/master/images/logo.png" width="192">
+<img src="https://raw.githubusercontent.com/COINtoolbox/DRACULA/master/images/logo.png" width="384">
 
 # DRACULA - Dimensionality Reduction And Clustering for Unsupervised Learning in Astronomy
 
